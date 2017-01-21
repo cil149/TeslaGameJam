@@ -7,15 +7,17 @@ public class EnergyManager : MonoBehaviour {
 
     public static EnergyManager instance;
 
-        List<Tower> listTower;
-         List<Tower> listIniT;
-         List<Tower> listFinT;
-         List<Tower> listRecorridas;
-         List<Tower> listPendientes;
-		bool victory;
-		float Totalcost;
-		float levelCost;
-		int stars;
+		private List<Tower> listTower;
+		private List<Tower> listIniT;
+		private List<Tower> listFinT;
+		private List<Tower> listRecorridas;
+		private List<Tower> listPendientes;
+		private bool victory;
+
+		[SerializeField]
+		private float totalGold;
+
+		private int stars;
 
    //public  LayerMask towerIgnore;
 
@@ -108,15 +110,15 @@ public class EnergyManager : MonoBehaviour {
   public  void RegisterTower(Tower t)
     {
         
-        if (t.isInitial)
-        {
-            listIniT.Add(t);
-        }else if (t.isFinal)
-        {
-            listFinT.Add(t);
-			listTower.Add(t);
-		}else
-			listTower.Add(t);
+		if (t.isInitial) {
+			listIniT.Add (t);
+		} else if (t.isFinal) {
+			listFinT.Add (t);
+			listTower.Add (t);
+		} else {
+			listTower.Add (t);
+			
+		}
     }
 
    public void UnregisterTower(Tower t)
@@ -133,20 +135,20 @@ public class EnergyManager : MonoBehaviour {
         }
     }
 
-	void ActCost(){
+	void ActGold(){
 		foreach (Tower t in listTower) {
-			Totalcost+=t.cost;
+			totalGold-=t.cost;
 		}
 	}
 
 	void checkStars(){
-		if (Totalcost == levelCost)
+		if (totalGold > 750 )
 			stars = 3;
-		else if (Totalcost < levelCost + 250)
+		else if (totalGold > 500)
 			stars = 2;
-		else if (Totalcost < levelCost + 500)
+		else if (totalGold > 250)
 			stars = 1;
-		else if (Totalcost < levelCost + 750)
+		else if (totalGold > 50)
 			stars = 0;
 	}
 }
