@@ -20,7 +20,9 @@ public class City : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		isActive = false;
+		isActivateBefore = false;
+		EnergyManager.instance.RegisterCity (this);
 	}
 	
 	// Update is called once per frame

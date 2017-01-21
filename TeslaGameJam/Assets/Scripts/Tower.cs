@@ -86,6 +86,7 @@ public class Tower : MonoBehaviour {
     void Start()
     {
         if(_isInitial )EnergyManager.instance.RegisterTower(this);
+		if(_isFinal) EnergyManager.instance.RegisterTower(this);
     }
 
     void OnDisable()
