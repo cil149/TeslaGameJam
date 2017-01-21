@@ -37,7 +37,7 @@ public class Tower : MonoBehaviour {
         {
             _isInEditMode = value;
 
-            if (_isInEditMode) EnergyManager.instance.RegisterTower(this);
+            if (!_isInEditMode) EnergyManager.instance.RegisterTower(this);
         }
     }
 
@@ -47,12 +47,16 @@ public class Tower : MonoBehaviour {
         {
             if (isInEditMode)
             {
-                Collider[] cols = Physics.OverlapSphere(transform.position, 1.089f, 1 << 8);
-                if (cols.Length > 0)
+                
+                foreach(Collider c in Physics.OverlapSphere(transform.position, 1.089f, 1 << 8) )
+                {
+                    if (!c.GetComponent<Tower>()._isInEditMode) return false;
+                }
+                
+                if (CameraInput.instance.CheckIfLandIsOnFoot())
                 {
                     return true;
                 }
-                return true;
             }
             return false;
         }

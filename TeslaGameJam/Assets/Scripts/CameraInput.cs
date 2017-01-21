@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CameraInput : MonoBehaviour {
 
+    public static CameraInput instance;
+
+
     public GameObject _Camera;
     public GameObject _MyPlanet;
 
@@ -23,8 +26,8 @@ public class CameraInput : MonoBehaviour {
         }
     }
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+        instance = this;
 	}
 
 
@@ -56,7 +59,7 @@ public class CameraInput : MonoBehaviour {
 
 
 
-        RaycastHit[] hit = Physics.RaycastAll(_Camera.transform.position, _MyPlanet.transform.position - _Camera.transform.position, 1 << 10);
+        RaycastHit[] hit = Physics.RaycastAll(_Camera.transform.position, _MyPlanet.transform.position - _Camera.transform.position, 1 << 10 | 1 << 9);
         for (int i = 0; i < hit.Length; i++ )
         {
             if (hit[i].collider.tag == "Planet")
@@ -87,6 +90,32 @@ public class CameraInput : MonoBehaviour {
 
     }
 
+
+
+    public bool CheckIfLandIsOnFoot()
+    {
+        /*
+        RaycastHit hit;
+        
+        if(Physics.Raycast(_Camera.transform.position, _MyPlanet.transform.position - _Camera.transform.position, out hit, 1 << 9))
+        {
+            Debug.Log(hit.collider.name);
+            if (hit.collider.tag == "Mar")
+            {
+                return false;
+            }
+
+        }*/
+        RaycastHit[] hit = Physics.RaycastAll(_Camera.transform.position, _MyPlanet.transform.position - _Camera.transform.position, 10f, 1 << 9);
+
+        foreach (RaycastHit r in hit)
+        {
+            Debug.Log(r.collider.name);
+        }
+
+
+        return hit.Length == 0;
+    }
 
     /*
     void OnDrawGizmos()

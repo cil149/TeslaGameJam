@@ -48,8 +48,8 @@ public class MouseOrbitImproved : MonoBehaviour
     {
         if (target)
         {
-            x -= InputController.instance.mouseYRaw * xSpeed * Mathf.Max( 0.05f, (distance - distanceMin) / distanceMax) ;
-            y += InputController.instance.mouseXRaw * ySpeed * Mathf.Max( 0.05f, (distance - distanceMin) / distanceMax) ;
+            x -= InputController.instance.leftRaw * xSpeed * Mathf.Max( 0.05f, (distance - distanceMin) / distanceMax) ;
+            y += InputController.instance.forwardRaw * ySpeed * Mathf.Max( 0.05f, (distance - distanceMin) / distanceMax) ;
             /*
             x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
             y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;

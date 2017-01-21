@@ -8,6 +8,10 @@ public class InputController : MonoBehaviour
 
 
     Director director;
+
+    public float forwardRaw;
+    public float leftRaw;
+
     public float forward;
     public float backward;
     public float left;
@@ -49,7 +53,8 @@ public class InputController : MonoBehaviour
     void Update()
     {
 
-
+        forwardRaw = Input.GetAxis("VerticalLeft");
+        leftRaw = Input.GetAxis("HorizontalLeft");
         forward = Input.GetAxis("VerticalLeft") > 0 ? Input.GetAxis("VerticalLeft") : 0;
         backward = -Input.GetAxis("VerticalLeft") > 0 ? -Input.GetAxis("VerticalLeft") : 0;
         right = Input.GetAxis("HorizontalLeft") > 0 ? Input.GetAxis("HorizontalLeft") : 0;
