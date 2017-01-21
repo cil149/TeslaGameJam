@@ -6,7 +6,7 @@ public class MouseOrbitImproved : MonoBehaviour
 {
 
     public Transform target;
-    private float distance;
+    public  float distance;
     public float xSpeed = 120.0f;
     public float ySpeed = 120.0f;
 
