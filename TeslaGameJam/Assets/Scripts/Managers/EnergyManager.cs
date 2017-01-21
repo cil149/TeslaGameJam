@@ -9,7 +9,7 @@ public class EnergyManager : MonoBehaviour {
          List<Tower> listFinT;
          List<Tower> listRecorridas;
          List<Tower> listPendientes;
-
+	bool victory;
     // Use this for initialization
     void Start () {
         listTower = new List<Tower>();
@@ -18,21 +18,20 @@ public class EnergyManager : MonoBehaviour {
 
         listRecorridas = new List<Tower>();
         listPendientes = new List<Tower>();
-    }
+		victory = false;
+	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		SwapOff ();
         EnergyUpdate();
-
-
-
-
+		victory = checkWinCondition ();
     }
 
 	void SwapOff(){
-
-
+		foreach(Tower t in listTower){
+			t.isOn = false;
+		}
 	}
 
    	void EnergyUpdate()
@@ -41,17 +40,13 @@ public class EnergyManager : MonoBehaviour {
         Tower actTower;
         listPendientes.AddRange(listIniT);
         RaycastHit hit;
-
         while (listPendientes.Count != 0)
         {
             actTower = listPendientes[0];
-
             foreach (Tower t in listTower)
             {
                 if (!listRecorridas.Contains(t))
-                {
-
-
+				{
                     if (Physics.Raycast(actTower.transform.position, t.transform.position - actTower.transform.position, out hit, actTower.distMax))
                     {
                         if (hit.collider.gameObject == t.gameObject)
@@ -62,7 +57,6 @@ public class EnergyManager : MonoBehaviour {
                     }
                 }
             }
-
             listRecorridas.Add(actTower);
             listPendientes.Remove(actTower);
         }
@@ -76,13 +70,11 @@ public class EnergyManager : MonoBehaviour {
 			if (t.isOn)
 				finishTowerOn++;
 		}
-		if (finishTowerOn == listFinT.count) {
+		if (finishTowerOn == listFinT.Count) {
 			return true;
 		}
 		return false;
     }
-
-
 
     void RegisterTower(Tower t)
     {
