@@ -118,13 +118,13 @@ public class EnergyManager : MonoBehaviour {
 	}
 
 	void checkStars(){
-		if (ActCost == levelCost)
+		if (Totalcost == levelCost)
 			stars = 3;
-		else if (ActCost < levelCost + 250)
+		else if (Totalcost < levelCost + 250)
 			stars = 2;
-		else if (ActCost < levelCost + 500)
+		else if (Totalcost < levelCost + 500)
 			stars = 1;
-		else if (ActCost < levelCost + 750)
+		else if (Totalcost < levelCost + 750)
 			stars = 0;
 	}
 }
