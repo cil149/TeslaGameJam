@@ -23,7 +23,7 @@ public class Tower : MonoBehaviour {
     public float distMax { get { return _distMax; } set { _distMax = value; } }
     public bool isOn { get { return _isOn; } set { _isOn = value; } }
 	public float cost { get { return _cost; } set { _cost = value; } }
-
+	public Collider sphere;
 
     public Material matOn;
     public Material matOff;
@@ -37,7 +37,11 @@ public class Tower : MonoBehaviour {
         {
             _isInEditMode = value;
 
-            if (!_isInEditMode) EnergyManager.instance.RegisterTower(this);
+			if (!_isInEditMode) {
+				this.sphere.enabled = true;
+				EnergyManager.instance.RegisterTower (this);
+
+			}
         }
     }
 
@@ -50,7 +54,10 @@ public class Tower : MonoBehaviour {
                 
                 foreach(Collider c in Physics.OverlapSphere(transform.position, 1.089f, 1 << 8) )
                 {
-                    if (!c.GetComponent<Tower>()._isInEditMode) return false;
+					if (!c.GetComponent<Tower> ()._isInEditMode) {
+						return false;
+
+					}
                 }
                 
                 if (CameraInput.instance.CheckIfLandIsOnFoot())
