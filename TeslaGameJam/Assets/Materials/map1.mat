@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: map1
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 76374158b4c4e5744b394e9290aae693, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
@@ -21,5 +21,32 @@ Material:
         m_Texture: {fileID: 2800000, guid: 7551d8d12f5b6a148ab53fec6e1fc10c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
+    - first:
+        name: _ToonShade
+      second:
+        m_Texture: {fileID: 2800000, guid: 39413e2567f4b452db0d4a76dbef5419, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _Brightness
+      second: 1
+    - first:
+        name: _DetailTex
+      second: 0
+    - first:
+        name: _Outline
+      second: 0.01
+    - first:
+        name: _TintColor
+      second: 0
+    - first:
+        name: _VertexColor
+      second: 0
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _OutlineColor
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
