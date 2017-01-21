@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour {
+    [SerializeField]
     private float _distMax;
+    [SerializeField]
     private bool _isInitial;
+    [SerializeField]
     private bool _isFinal;
+
     private bool _isOn;
-	private float _cost;
+
+    [SerializeField]
+    private float _cost;
+
+    [SerializeField]
+    private Renderer _torus_rend;
 
     public bool isInitial { get { return _isInitial; } set { _isInitial = value; } }
     public bool isFinal { get { return _isFinal; } set { _isFinal = value; } }
@@ -23,11 +32,16 @@ public class Tower : MonoBehaviour {
 
     void Awake()
     {
-        Material[] mats = GetComponent<Renderer>().materials;
-        matOn = mats[1];
+        Material[] mats = _torus_rend.materials;
+
         matOff = mats[0];
+        matOn = mats[1];
     }
 
+    void OnEnable()
+    {
+       // EnergyManager.instance.RegisterTower(this);
+    }
     // Use this for initialization
     void Start()
     {
@@ -42,14 +56,14 @@ public class Tower : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (isOn && gameObject.GetComponent<Renderer>().material != matOn)
+        if (isOn && _torus_rend.material != matOn)
         {
 
-            gameObject.GetComponent<Renderer>().material = matOn;
+            _torus_rend.material = matOn;
         }
-        else if (!isOn && gameObject.GetComponent<Renderer>().material != matOff)
+        else if (!isOn && _torus_rend.material != matOff)
         {
-            gameObject.GetComponent<Renderer>().material = matOff;
+            _torus_rend.material = matOff;
         }
 
     }

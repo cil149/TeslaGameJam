@@ -17,38 +17,49 @@ public class EnergyManager : MonoBehaviour {
 		float levelCost;
 		int stars;
 
-
+   //public  LayerMask towerIgnore;
 
     void Awake()
     {
         instance = this;
     }
     // Use this for initialization
-    void Start () {
+
+    private void OnEnable()
+    {
         listTower = new List<Tower>();
         listIniT = new List<Tower>();
         listFinT = new List<Tower>();
 
         listRecorridas = new List<Tower>();
         listPendientes = new List<Tower>();
+        //towerIgnore = ~towerIgnore;
+    }
+    void Start () {
+
 		victory = false;
 		stars = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		SwapOff ();
+        IniUpdate();
         EnergyUpdate();
 		victory = checkWinCondition ();
 		if (victory)
 			checkStars ();
     }
 
-	void SwapOff(){
+	void IniUpdate(){
 		foreach(Tower t in listTower){
 			t.isOn = false;
 		}
-	}
+
+        foreach (Tower t in listIniT)
+        {
+            t.isOn = true;
+        }
+    }
 
    	void EnergyUpdate()
     {
@@ -56,6 +67,8 @@ public class EnergyManager : MonoBehaviour {
         Tower actTower;
         listPendientes.AddRange(listIniT);
         RaycastHit hit;
+        //LayerMask 
+
         while (listPendientes.Count != 0)
         {
             actTower = listPendientes[0];
