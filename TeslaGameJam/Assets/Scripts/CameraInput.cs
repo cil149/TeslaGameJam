@@ -115,7 +115,16 @@ public class CameraInput : MonoBehaviour {
         }
 
 
-        return hit.Length == 0;
+        RaycastHit primerHit;
+        bool esTierraPrimerHit=false;
+        if (Physics.Raycast(_Camera.transform.position, _MyPlanet.transform.position - _Camera.transform.position, out primerHit))
+        {
+            esTierraPrimerHit = primerHit.transform.gameObject.layer == 10; // Si es tierra todo bien, si no, no deja poner
+        }
+
+
+
+            return (hit.Length == 0) && esTierraPrimerHit;
     }
 
     /*

@@ -1244,6 +1244,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114253471320980786, guid: 303a5b310fc608445a15c07033c970eb,
+        type: 2}
+      propertyPath: wpList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4000383638764918, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
       propertyPath: m_LocalPosition.x
       value: -5.7115564
@@ -1281,6 +1286,41 @@ Prefab:
       propertyPath: CollisionModule.plane0
       value: 
       objectReference: {fileID: 1080606445}
+    - target: {fileID: 114253471320980786, guid: 303a5b310fc608445a15c07033c970eb,
+        type: 2}
+      propertyPath: wpMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253471320980786, guid: 303a5b310fc608445a15c07033c970eb,
+        type: 2}
+      propertyPath: wpList.Array.data[0].x
+      value: -2.938986
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253471320980786, guid: 303a5b310fc608445a15c07033c970eb,
+        type: 2}
+      propertyPath: wpList.Array.data[0].y
+      value: 20.90872
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253471320980786, guid: 303a5b310fc608445a15c07033c970eb,
+        type: 2}
+      propertyPath: wpList.Array.data[0].z
+      value: 5.560095
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253471320980786, guid: 303a5b310fc608445a15c07033c970eb,
+        type: 2}
+      propertyPath: wpList.Array.data[1].x
+      value: -2.938986
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253471320980786, guid: 303a5b310fc608445a15c07033c970eb,
+        type: 2}
+      propertyPath: wpList.Array.data[1].y
+      value: 18.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253471320980786, guid: 303a5b310fc608445a15c07033c970eb,
+        type: 2}
+      propertyPath: wpList.Array.data[1].z
+      value: 11.09
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
   m_IsPrefabParent: 0

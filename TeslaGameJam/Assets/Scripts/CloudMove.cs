@@ -6,12 +6,19 @@ public class CloudMove : MonoBehaviour {
     Transform trans;
    public LayerMask layerTierra;
    public float velocity;
-   public float maxTimeToChangeDir=10;
-   public float minTimeToChangeDir = 3;
+   public float rnd_maxTimeToChangeDir=10;
+   public float rnd_minTimeToChangeDir = 3;
+   public bool wpMode = false;
 
-   private float timeWithDir=0;
-    private Vector3 dir;
-   private float timeToChangeDir=0;
+    public int wpAct=0;
+
+    public List<Vector3> wpList;  
+
+   private float rnd_timeWithDir=0;
+   private Vector3 dir;
+   private float rnd_timeToChangeDir=0;
+
+    
 	// Use this for initialization
 	void Start () {
 
@@ -22,14 +29,39 @@ public class CloudMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        timeWithDir += Time.deltaTime;
-        if( timeWithDir>= timeToChangeDir) //la primera vez entra porque timeToChangeDir es 0
+        if (wpMode)
         {
-            timeWithDir = 0;
-            timeToChangeDir = Random.Range(minTimeToChangeDir, maxTimeToChangeDir);
-            dir.x = Random.Range(-1.0f, 1.0f);
-            dir.z = Random.Range(-1.0f, 1.0f);
+            Vector3 posObj = wpList[wpAct];
+            Vector3 posObjProy = posObj;
+            posObjProy.y = 0;
+            Vector3 posTransProy = trans.position;
+            posTransProy.y = 0;
+            if (Vector3.Distance(posObjProy, posTransProy) <1f)
+            {
+                wpAct++;
+                if (wpAct == wpList.Count) wpAct = 0;
 
+                posObj = wpList[wpAct];
+            }
+
+            
+            dir = posObj - trans.position;
+            dir.y = 0;
+            dir.Normalize();
+            
+            
+        }
+        else
+        {
+            rnd_timeWithDir += Time.deltaTime;
+            if (rnd_timeWithDir >= rnd_timeToChangeDir) //la primera vez entra porque timeToChangeDir es 0
+            {
+                rnd_timeWithDir = 0;
+                rnd_timeToChangeDir = Random.Range(rnd_minTimeToChangeDir, rnd_maxTimeToChangeDir);
+                dir.x = Random.Range(-1.0f, 1.0f);
+                dir.z = Random.Range(-1.0f, 1.0f);
+
+            }
         }
 
         trans.Translate(Time.deltaTime* velocity*dir.x, 0, Time.deltaTime * velocity * dir.z);
