@@ -15,9 +15,27 @@ public class EnergyManager : MonoBehaviour {
 		private List<City> listCity;
 		private List<City> visitCity;
 		private bool victory;
+		
+		[SerializeField]
+		private float _totalGold;
+
+		public float totalGold { get { return _totalGold; } set { _totalGold = value; } }
 
 		[SerializeField]
-		private float totalGold;
+		private float _threeStar;
+
+		public float threeStar { get { return _threeStar; } set { _threeStar = value; } }
+		
+		[SerializeField]
+		private float _twoStar;
+
+		public float twoStar { get { return _twoStar; } set { _twoStar = value; } }
+
+		[SerializeField]
+		private float _OneStar;
+		
+		public float OneStar { get { return _OneStar; } set { _OneStar = value; } }
+
 
 		private int stars;
 
@@ -52,6 +70,7 @@ public class EnergyManager : MonoBehaviour {
 	void Update () {
         IniUpdate();
         EnergyUpdate();
+		checkCity ();
 		victory = checkWinCondition ();
 		if (victory)
 			checkStars ();
@@ -118,7 +137,7 @@ public class EnergyManager : MonoBehaviour {
 				c.isActive = false;
 			}
 		}
-		listCity.Clear ();
+		visitCity.Clear ();
 	}
 
 
@@ -176,11 +195,11 @@ public class EnergyManager : MonoBehaviour {
 	}
 
 	void checkStars(){
-		if (totalGold > 750 )
+		if (totalGold > threeStar )
 			stars = 3;
-		else if (totalGold > 500)
+		else if (totalGold > twoStar)
 			stars = 2;
-		else if (totalGold > 250)
+		else if (totalGold > OneStar)
 			stars = 1;
 		else if (totalGold > 50)
 			stars = 0;
