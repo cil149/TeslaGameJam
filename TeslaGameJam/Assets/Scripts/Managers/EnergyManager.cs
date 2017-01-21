@@ -12,6 +12,7 @@ public class EnergyManager : MonoBehaviour {
 		private List<Tower> listFinT;
 		private List<Tower> listRecorridas;
 		private List<Tower> listPendientes;
+		private List<City> listCity;
 		private bool victory;
 
 		[SerializeField]
@@ -84,7 +85,13 @@ public class EnergyManager : MonoBehaviour {
                         {
                             listPendientes.Add(t);
 							t.isOn = true;
-                        }
+						}/*else foreach(City c in listCity){
+								if (c.gameObject == hit.collider.gameObject) {
+
+
+								}
+
+						}*/
                     }
                 }
             }
@@ -107,7 +114,7 @@ public class EnergyManager : MonoBehaviour {
 		return false;
     }
 
-  public  void RegisterTower(Tower t)
+  public void RegisterTower(Tower t)
     {
         
 		if (t.isInitial) {
@@ -134,6 +141,14 @@ public class EnergyManager : MonoBehaviour {
             listFinT.Remove(t);
         }
     }
+
+	public void RegisterCity(City c){
+		listCity.Add (c);
+	}
+
+	public void unRegisterCity(City c){
+		listCity.Remove (c);
+	}
 
 	void ActGold(){
 		foreach (Tower t in listTower) {
