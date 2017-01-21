@@ -13,6 +13,7 @@ public class EnergyManager : MonoBehaviour {
 		private List<Tower> listRecorridas;
 		private List<Tower> listPendientes;
 		private List<City> listCity;
+		private List<City> visitCity;
 		private bool victory;
 
 		[SerializeField]
@@ -36,6 +37,9 @@ public class EnergyManager : MonoBehaviour {
 
         listRecorridas = new List<Tower>();
         listPendientes = new List<Tower>();
+
+		listCity = new List<City> ();
+		visitCity = new List<City> ();
         //towerIgnore = ~towerIgnore;
     }
     void Start () {
@@ -89,14 +93,33 @@ public class EnergyManager : MonoBehaviour {
                     }
                 }
             }
-			//foreach(City c in listCity){
-
-
-			//}
-            listRecorridas.Add(actTower);
-            listPendientes.Remove(actTower);
+			foreach (City c in listCity) {
+				if (Physics.Raycast (actTower.transform.position, c.transform.position - actTower.transform.position, out hit, actTower.distMax)) {
+					if (c.gameObject == hit.collider.gameObject) {
+						visitCity.Add (c);
+					}
+				}
+			}
+			listRecorridas.Add (actTower);
+			listPendientes.Remove (actTower);
         }
     }
+
+	void checkCity(){
+		foreach (City c in listCity) {
+			if (visitCity.Contains (c)) {
+				if (!c.isActivateBefore){
+					c.isActivateBefore = true;
+					ActGold (c.addGold);
+				}
+				c.isActive = true;
+			}else if(c.isActive){
+				ActGold (c.subGold);
+				c.isActive = false;
+			}
+		}
+		listCity.Clear ();
+	}
 
 
     bool checkWinCondition()
@@ -122,7 +145,7 @@ public class EnergyManager : MonoBehaviour {
 			listTower.Add (t);
 		} else {
 			listTower.Add (t);
-			ActGold ();
+			ActGold (t.cost);
 		}
     }
 
@@ -148,10 +171,8 @@ public class EnergyManager : MonoBehaviour {
 		listCity.Remove (c);
 	}
 
-	void ActGold(){
-		foreach (Tower t in listTower) {
-			totalGold-=t.cost;
-		}
+	void ActGold(float gold){
+			totalGold-=gold;
 	}
 
 	void checkStars(){
