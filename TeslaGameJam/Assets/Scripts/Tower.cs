@@ -62,7 +62,6 @@ public class Tower : MonoBehaviour {
         }
     }
 
-    public Collider OverlapTrigger;
 
     void Awake()
     {
