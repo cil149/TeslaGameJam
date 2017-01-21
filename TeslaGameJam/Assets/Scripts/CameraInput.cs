@@ -66,6 +66,7 @@ public class CameraInput : MonoBehaviour {
             {
                 _towerPrefab_Instance.transform.position = hit[i].point;
                 _towerPrefab_Instance.transform.up = hit[i].normal;
+                _towerPrefab_Instance.transform.localPosition = _towerPrefab_Instance.transform.localPosition + Vector3.up * -0.2f;
             }
 
         }
