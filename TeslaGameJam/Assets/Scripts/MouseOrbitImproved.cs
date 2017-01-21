@@ -6,7 +6,7 @@ public class MouseOrbitImproved : MonoBehaviour
 {
 
     public Transform target;
-    public float distance = 5.0f;
+    private float distance;
     public float xSpeed = 120.0f;
     public float ySpeed = 120.0f;
 
@@ -33,6 +33,8 @@ public class MouseOrbitImproved : MonoBehaviour
         x = angles.y;
         y = angles.x;
 
+        distance = distanceMax;
+
         rigidbody = GetComponent<Rigidbody>();
 
         // Make the rigid body not change rotation
@@ -57,12 +59,13 @@ public class MouseOrbitImproved : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(y, x, 0);
 
             distance = Mathf.Clamp(distance - InputController.instance.RLTrigger * wheelSpeed * distance, distanceMin, distanceMax);
-
+            /*
             RaycastHit hit;
             if (Physics.Linecast(target.position, transform.position, out hit))
             {
                 distance -= hit.distance;
             }
+            */
             Vector3 negDistance = new Vector3(0.0f, 0.0f, -distance);
             Vector3 position = rotation * negDistance + target.position;
 

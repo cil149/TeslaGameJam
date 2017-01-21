@@ -25,17 +25,47 @@ public class Tower : MonoBehaviour {
 	public float cost { get { return _cost; } set { _cost = value; } }
 
 
-    Material matOn;
-    Material matOff;
+    public Material matOn;
+    public Material matOff;
 
 
+    private bool _isInEditMode;
+    public bool isInEditMode
+    {
+        get { return _isInEditMode; }
+        set
+        {
+            _isInEditMode = value;
+
+            if (_isInEditMode) EnergyManager.instance.RegisterTower(this);
+        }
+    }
+
+    public bool CanPlaceHere
+    {
+        get
+        {
+            if (isInEditMode)
+            {
+                Collider[] cols = Physics.OverlapSphere(transform.position, 1.089f, 1 << 8);
+                if (cols.Length > 0)
+                {
+                    return true;
+                }
+                return true;
+            }
+            return false;
+        }
+    }
+
+    public Collider OverlapTrigger;
 
     void Awake()
     {
-        Material[] mats = _torus_rend.materials;
+        //Material[] mats = _torus_rend.materials;
 
-        matOff = mats[0];
-        matOn = mats[1];
+        //matOff = mats[0];
+        //matOn = mats[1];
     }
 
     void OnEnable()
@@ -45,7 +75,7 @@ public class Tower : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        EnergyManager.instance.RegisterTower(this);
+        if(_isInitial )EnergyManager.instance.RegisterTower(this);
     }
 
     void OnDisable()
@@ -56,6 +86,12 @@ public class Tower : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+        if (isInEditMode)
+        {
+            return;
+        }
+
         if (isOn && _torus_rend.material != matOn)
         {
 
@@ -69,4 +105,12 @@ public class Tower : MonoBehaviour {
     }
 
 
+    /*
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position , 1.089f);
+        Gizmos.color = Color.green;
+    }
+    */
 }
