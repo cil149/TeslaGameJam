@@ -4,6 +4,8 @@ using System.Collections;
 
 public class InputController : MonoBehaviour
 {
+    public static InputController instance;
+
 
     Director director;
     public float forward;
@@ -21,6 +23,8 @@ public class InputController : MonoBehaviour
 
     public float RLTrigger;
 
+    public float mouseXRaw;
+    public float mouseYRaw;
     public float mouseXPos;
     public float mouseXNeg;
     public float mouseYPos;
@@ -38,6 +42,7 @@ public class InputController : MonoBehaviour
     void Awake()
     {
         director = GetComponent<Director>();
+        instance = this;
     }
 
 
@@ -60,6 +65,9 @@ public class InputController : MonoBehaviour
 
         RLTrigger = Input.GetAxis("RLTrigger");
 
+
+        mouseXRaw = Input.GetAxis("VerticalRight");
+        mouseYRaw = Input.GetAxis("HorizontalRight");
         mouseXPos = Input.GetAxis("VerticalRight") > 0 ? Input.GetAxis("VerticalRight") : 0;
         mouseXNeg = -Input.GetAxis("VerticalRight") > 0 ? -Input.GetAxis("VerticalRight") : 0;
         mouseYPos = Input.GetAxis("HorizontalRight") > 0 ? Input.GetAxis("HorizontalRight") : 0;
