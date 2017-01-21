@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4034309880497018}
+  - component: {fileID: 136872140030218948}
   m_Layer: 0
   m_Name: TeslaTowerIni
   m_TagString: Untagged
@@ -68,9 +69,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4285187123419022}
-  - component: {fileID: 33252384570032950}
   - component: {fileID: 135258262818602246}
   - component: {fileID: 114046283229858458}
+  - component: {fileID: 135664249654006974}
   m_Layer: 8
   m_Name: TowerScript
   m_TagString: Untagged
@@ -84,8 +85,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1042263309145884}
-  m_LocalRotation: {x: -0, y: -0, z: 0.55381846, w: 0.8326375}
-  m_LocalPosition: {x: -4.1840386, y: 2.4147851, z: -1.289432}
+  m_LocalRotation: {x: -0, y: -0, z: 0.05285697, w: 0.99860215}
+  m_LocalPosition: {x: -3.98, y: 21.954, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4634026988928550}
@@ -93,7 +94,7 @@ Transform:
   - {fileID: 4285187123419022}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 67.259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.0600004}
 --- !u!4 &4285187123419022
 Transform:
   m_ObjectHideFlags: 1
@@ -202,13 +203,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1001386162740988}
   m_Mesh: {fileID: 4300000, guid: db6767afc8979514399272096fd54a63, type: 3}
---- !u!33 &33252384570032950
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893735100845538}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33819906885874362
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -234,6 +228,7 @@ MonoBehaviour:
   _torus_rend: {fileID: 23372782868799068}
   matOn: {fileID: 2100000, guid: 988b0ca9baa2a524a955a7241276fe05, type: 2}
   matOff: {fileID: 2100000, guid: 33a04427f480fab49b01d81cfac70c2a, type: 2}
+  OverlapTrigger: {fileID: 0}
 --- !u!135 &135258262818602246
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -246,3 +241,28 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &135664249654006974
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893735100845538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.08
+  m_Center: {x: 0, y: -0.5, z: 0}
+--- !u!136 &136872140030218948
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042263309145884}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.1523328
+  m_Height: 3.2754848
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.89, z: 0}
