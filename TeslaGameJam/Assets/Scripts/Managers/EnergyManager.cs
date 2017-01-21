@@ -9,7 +9,11 @@ public class EnergyManager : MonoBehaviour {
          List<Tower> listFinT;
          List<Tower> listRecorridas;
          List<Tower> listPendientes;
-	bool victory;
+		bool victory;
+		float Totalcost;
+		float levelCost;
+		int stars;
+
     // Use this for initialization
     void Start () {
         listTower = new List<Tower>();
@@ -19,6 +23,7 @@ public class EnergyManager : MonoBehaviour {
         listRecorridas = new List<Tower>();
         listPendientes = new List<Tower>();
 		victory = false;
+		stars = 0;
 	}
 	
 	// Update is called once per frame
@@ -26,6 +31,8 @@ public class EnergyManager : MonoBehaviour {
 		SwapOff ();
         EnergyUpdate();
 		victory = checkWinCondition ();
+		if (victory)
+			checkStars ();
     }
 
 	void SwapOff(){
@@ -103,4 +110,23 @@ public class EnergyManager : MonoBehaviour {
             listFinT.Remove(t);
         }
     }
+
+	void ActCost(){
+		foreach (Tower t in listTower) {
+			Totalcost+=t.cost;
+		}
+	}
+
+	void checkStars(){
+		if (ActCost == levelCost)
+			stars = 3;
+		else if (ActCost < levelCost + 250)
+			stars = 2;
+		else if (ActCost < levelCost + 500)
+			stars = 1;
+		else if (ActCost < levelCost + 750)
+			stars = 0;
+	}
 }
+
+
