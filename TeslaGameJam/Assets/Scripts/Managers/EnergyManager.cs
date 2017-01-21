@@ -117,7 +117,7 @@ public class EnergyManager : MonoBehaviour {
 			listTower.Add (t);
 		} else {
 			listTower.Add (t);
-			
+			ActGold ();
 		}
     }
 
