@@ -85,16 +85,14 @@ public class EnergyManager : MonoBehaviour {
                         {
                             listPendientes.Add(t);
 							t.isOn = true;
-						}/*else foreach(City c in listCity){
-								if (c.gameObject == hit.collider.gameObject) {
-
-
-								}
-
-						}*/
+						}
                     }
                 }
             }
+			//foreach(City c in listCity){
+
+
+			//}
             listRecorridas.Add(actTower);
             listPendientes.Remove(actTower);
         }
