@@ -438,6 +438,54 @@ Skybox:
   m_GameObject: {fileID: 1469498589}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: a07fadb24ea940240afba3afc1a692cc, type: 2}
+--- !u!1001 &1514466587
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4472765036634944, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.7115564
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472765036634944, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 21.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472765036634944, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 6.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472765036634944, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472765036634944, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472765036634944, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472765036634944, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472765036634944, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114058345443992832, guid: 303a5b310fc608445a15c07033c970eb,
+        type: 2}
+      propertyPath: layerTierra.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114058345443992832, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 303a5b310fc608445a15c07033c970eb, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1605859013
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,3 +610,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.28, z: 0.13}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1765924893 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1381695828749768, guid: 303a5b310fc608445a15c07033c970eb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1514466587}
+--- !u!114 &1765924895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1765924893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e8e86626fb917488e55589c858b28e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerTierra:
+    serializedVersion: 2
+    m_Bits: 1024
+  velocity: 1
+  maxTimeToChangeDir: 10
+  minTimeToChangeDir: 3
