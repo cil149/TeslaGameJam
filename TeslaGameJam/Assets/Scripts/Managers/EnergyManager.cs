@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnergyManager : MonoBehaviour {
-    
-         List<Tower> listTower;
+
+
+    public static EnergyManager instance;
+
+        List<Tower> listTower;
          List<Tower> listIniT;
          List<Tower> listFinT;
          List<Tower> listRecorridas;
@@ -14,6 +17,12 @@ public class EnergyManager : MonoBehaviour {
 		float levelCost;
 		int stars;
 
+
+
+    void Awake()
+    {
+        instance = this;
+    }
     // Use this for initialization
     void Start () {
         listTower = new List<Tower>();
@@ -83,7 +92,7 @@ public class EnergyManager : MonoBehaviour {
 		return false;
     }
 
-    void RegisterTower(Tower t)
+  public  void RegisterTower(Tower t)
     {
         
         if (t.isInitial)
@@ -97,7 +106,7 @@ public class EnergyManager : MonoBehaviour {
 			listTower.Add(t);
     }
 
-    void UnregisterTower(Tower t)
+   public void UnregisterTower(Tower t)
     {
         listTower.Remove(t);
 
