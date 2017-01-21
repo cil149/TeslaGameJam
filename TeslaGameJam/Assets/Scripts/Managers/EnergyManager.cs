@@ -3,13 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnergyManager : MonoBehaviour {
-    
-         List<Tower> listTower;
+
+
+    public static EnergyManager instance;
+
+        List<Tower> listTower;
          List<Tower> listIniT;
          List<Tower> listFinT;
          List<Tower> listRecorridas;
          List<Tower> listPendientes;
-	bool victory;
+		bool victory;
+		float Totalcost;
+		float levelCost;
+		int stars;
+
+
+
+    void Awake()
+    {
+        instance = this;
+    }
     // Use this for initialization
     void Start () {
         listTower = new List<Tower>();
@@ -19,6 +32,7 @@ public class EnergyManager : MonoBehaviour {
         listRecorridas = new List<Tower>();
         listPendientes = new List<Tower>();
 		victory = false;
+		stars = 0;
 	}
 	
 	// Update is called once per frame
@@ -26,6 +40,8 @@ public class EnergyManager : MonoBehaviour {
 		SwapOff ();
         EnergyUpdate();
 		victory = checkWinCondition ();
+		if (victory)
+			checkStars ();
     }
 
 	void SwapOff(){
@@ -76,7 +92,7 @@ public class EnergyManager : MonoBehaviour {
 		return false;
     }
 
-    void RegisterTower(Tower t)
+  public  void RegisterTower(Tower t)
     {
         
         if (t.isInitial)
@@ -90,7 +106,7 @@ public class EnergyManager : MonoBehaviour {
 			listTower.Add(t);
     }
 
-    void UnregisterTower(Tower t)
+   public void UnregisterTower(Tower t)
     {
         listTower.Remove(t);
 
@@ -103,4 +119,23 @@ public class EnergyManager : MonoBehaviour {
             listFinT.Remove(t);
         }
     }
+
+	void ActCost(){
+		foreach (Tower t in listTower) {
+			Totalcost+=t.cost;
+		}
+	}
+
+	void checkStars(){
+		if (Totalcost == levelCost)
+			stars = 3;
+		else if (Totalcost < levelCost + 250)
+			stars = 2;
+		else if (Totalcost < levelCost + 500)
+			stars = 1;
+		else if (Totalcost < levelCost + 750)
+			stars = 0;
+	}
 }
+
+
