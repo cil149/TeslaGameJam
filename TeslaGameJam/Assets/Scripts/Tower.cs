@@ -37,7 +37,11 @@ public class Tower : MonoBehaviour {
         {
             _isInEditMode = value;
 
-            if (!_isInEditMode) EnergyManager.instance.RegisterTower(this);
+            if (!_isInEditMode)
+            {
+
+                EnergyManager.instance.RegisterTower(this);
+            }
         }
     }
 

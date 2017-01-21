@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbf76ad2202169488fd056a5f0f1b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalGold: 0
 --- !u!1 &1080606441
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +255,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ed8f0a2bd2e66cc46aadf1f6d03bc941, type: 2}
+  - {fileID: 2100000, guid: 60e267a37811bfa4f8717de602cec971, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -345,7 +346,7 @@ MonoBehaviour:
   wheelSpeed: 0.02
   yMinLimit: -90
   yMaxLimit: 90
-  distanceMin: 25
+  distanceMin: 28
   distanceMax: 45
 --- !u!81 &1469498591
 AudioListener:
