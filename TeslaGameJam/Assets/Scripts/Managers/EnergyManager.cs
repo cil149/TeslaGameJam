@@ -89,10 +89,10 @@ public class EnergyManager : MonoBehaviour {
                     }
                 }
             }
-			foreach(City c in listCity){
+			//foreach(City c in listCity){
 
 
-			}
+			//}
             listRecorridas.Add(actTower);
             listPendientes.Remove(actTower);
         }
