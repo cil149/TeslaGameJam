@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudMove : MonoBehaviour {
+public class CloudScript : MonoBehaviour {
     Transform trans;
    public LayerMask layerTierra;
+
+    public float signalDownCoef; 
+
    public float velocity;
    public float rnd_maxTimeToChangeDir=10;
    public float rnd_minTimeToChangeDir = 3;
    public bool wpMode = false;
-
     public int wpAct=0;
 
     public List<Vector3> wpList;  
