@@ -1161,7 +1161,9 @@ MonoBehaviour:
   _addGold: 0
   _subGold: 0
   _torus_rend: {fileID: 23189487595024072}
-  matOn: {fileID: 2100000, guid: 988b0ca9baa2a524a955a7241276fe05, type: 2}
+  _type: 0
+  matOn1: {fileID: 2100000, guid: 988b0ca9baa2a524a955a7241276fe05, type: 2}
+  matOn2: {fileID: 2100000, guid: 8d56ff8847212e24e8680506fd18cf32, type: 2}
   matOff: {fileID: 2100000, guid: 33a04427f480fab49b01d81cfac70c2a, type: 2}
 --- !u!135 &135332139563149408
 SphereCollider:
