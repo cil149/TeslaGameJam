@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1358083975290226}
   m_LocalRotation: {x: -0.7071068, y: -0.000000014901161, z: -0.000000009778887, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.63, z: 0}
+  m_LocalPosition: {x: 0, y: 1.55, z: 0}
   m_LocalScale: {x: 10, y: 10.000004, z: 10.000004}
   m_Children: []
   m_Father: {fileID: 4324046738476584}
@@ -189,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442038185663592}
   m_LocalRotation: {x: -0.7071068, y: -0.000000014901161, z: -0.000000009778887, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.63, z: -0}
+  m_LocalPosition: {x: 0, y: 1.55, z: -0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 4324046738476584}
@@ -358,11 +358,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b8c492853a4814590d9df7b6a9dc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distMax: 5
+  _distMax: 8
   _isInitial: 0
   _isFinal: 0
   _isOn: 0
-  _cost: 0
+  _cost: 10
   _torus_rend: {fileID: 23499885575690070}
   _type: 0
   sphere: {fileID: 135905232807272322}

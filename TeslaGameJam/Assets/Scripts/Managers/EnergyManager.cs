@@ -41,7 +41,7 @@ public class EnergyManager : MonoBehaviour {
 
 		private int stars;
 
-   //public  LayerMask towerIgnore;
+        public  LayerMask marLayer; //Para ignorar
 
     void Awake()
     {
@@ -60,7 +60,7 @@ public class EnergyManager : MonoBehaviour {
 
 		listCity = new List<City> ();
 		visitCity = new List<City> ();
-        //towerIgnore = ~towerIgnore;
+        marLayer = ~marLayer;
     }
     void Start () {
 
@@ -104,28 +104,34 @@ public class EnergyManager : MonoBehaviour {
             {
                 if (!listRecorridas.Contains(t))
 				{
-                    if (Physics.Raycast(actTower.transform.position, t.transform.position - actTower.transform.position, out hit, actTower.distMax))
+                    if (Physics.Raycast(actTower.transform.position, t.transform.position - actTower.transform.position, out hit, actTower.distMax, marLayer))
                     {
                         if (hit.collider.gameObject == t.gameObject)
                         {
-							if (t.isFinal) {
+                            
+                            TowerHit(t, actTower);
+                            /* if (t.isFinal) {
 								if (t.type == actTower.type  && !listFinArrv.Contains(t)) {
 									listFinArrv.Add (t);
-								}
+                                    
+                                }
 							} else {
 								if (t.type == 0) {
 									t.type = actTower.type;
 									listPendientes.Add (t);
 								} else if (t.type == actTower.type)
 									listPendientes.Add (t);
-								t.isOn = true;
-							}
-						}
+								//t.isOn = true;
+							}*/
+                        }else
+                        {
+                            checkClouds(t, actTower);
+                        }
                     }
                 }
             }
 			foreach (City c in listCity) {
-				if (Physics.Raycast (actTower.transform.position, c.transform.position - actTower.transform.position, out hit, actTower.distMax)) {
+				if (Physics.Raycast (actTower.transform.position, c.transform.position - actTower.transform.position, out hit, actTower.distMax, marLayer)) {
 					if (c.gameObject == hit.collider.gameObject) {
 						visitCity.Add (c);
 						if (c.type == 0) {
@@ -139,6 +145,77 @@ public class EnergyManager : MonoBehaviour {
         }
     }
 
+
+    private void TowerHit(Tower targetTower, Tower actTower)
+    {
+        targetTower.isOn = true; // Marcos, con esto se encienden las torres objetivo con su esfera
+        if (targetTower.isFinal)
+        {
+            if (targetTower.type == actTower.type && !listFinArrv.Contains(targetTower))
+            {
+                listFinArrv.Add(targetTower);
+
+            }
+        }
+        else
+        {
+            if (targetTower.type == 0)
+            {
+                targetTower.type = actTower.type;
+                listPendientes.Add(targetTower);
+            }
+            else if (targetTower.type == actTower.type)
+                listPendientes.Add(targetTower);
+            //t.isOn = true;
+        }
+    }
+
+
+
+    private void checkClouds(Tower targetTower, Tower actTower)
+    {
+        RaycastHit hit;
+        Physics.Raycast(actTower.transform.position, targetTower.transform.position - actTower.transform.position, out hit, actTower.distMax);
+        if (hit.collider.gameObject.GetComponent<CloudScript>()) //nubes // si ha chocado con nubes
+        {
+
+            RaycastHit hit2;
+            //y desde la antena objetivo tambien choca con nube (Bug si se ponen dos nubes en la trayectoria de un mismo rayo? )
+            if (Physics.Raycast(targetTower.transform.position, (targetTower.transform.position - actTower.transform.position) * -1, out hit2, actTower.distMax))
+            {
+                
+                CloudScript cloud = hit.collider.gameObject.GetComponent<CloudScript>();
+                float coefDownSignal;
+                if (cloud)// (choca con nube tambien)
+                {
+
+
+
+                    coefDownSignal = cloud.signalDownCoef;
+                    float distCloud = actTower.distMax - Vector3.Distance(hit.point, hit2.point) * coefDownSignal;
+                    //Si con las restricciones de la distancia, sigue llegando a la antena, entonces puede atravesar la nube
+                    //RaycastHit hitFinal;
+                    
+                    if (distCloud >= Vector3.Distance(targetTower.transform.position, actTower.transform.position))
+                    //if (Physics.Raycast(actTower.transform.position, t.transform.position - actTower.transform.position, out hit, actTower.distMax,8))//solo a otras torres
+                    {
+                        // listPendientes.Add(targetTower);
+                        // targetTower.isOn = true;
+                        TowerHit(targetTower, actTower);
+
+                        /* if (hit.collider.gameObject == t.gameObject)
+                         {
+
+                         }*/ //Aqui habria algunas posibilidades con varios objetos entre medias en que habria bugs.
+                             //listPendientes.Add(t);
+                             //t.isOn = true;
+                    }
+                }
+            }
+        }
+    }
+
+
 	void checkCity(){
 		foreach (City c in listCity) {
 			if (visitCity.Contains (c)) {
@@ -148,7 +225,7 @@ public class EnergyManager : MonoBehaviour {
 				}
 				c.isActive = true;
 			}else if(c.isActive){
-				ActGold (c.subGold);
+				//ActGold (c.subGold);
 				c.isActive = false;
 				c.type = 0;
 			}
@@ -203,6 +280,7 @@ public class EnergyManager : MonoBehaviour {
 
 	void ActGold(float gold){
 			totalGold-=gold;
+        //if gold es negativo perder?
 	}
 
 	void checkStars(){

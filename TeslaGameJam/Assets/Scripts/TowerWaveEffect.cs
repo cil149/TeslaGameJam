@@ -15,7 +15,7 @@ public class TowerWaveEffect : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         actScale = minScale;
-
+        maxScale = towerState.distMax*2;
     }
 
     // Update is called once per frame
@@ -29,10 +29,12 @@ public class TowerWaveEffect : MonoBehaviour {
                 actScale = minScale;
             }
             Vector3 s = new Vector3(actScale, actScale, actScale);
+            Vector3 s2 = new Vector3(maxScale, maxScale, maxScale);
             SphereGrown.transform.localScale = s;
-            
+            SphereMax.transform.localScale = s2;
 
-        }else
+        }
+        else
         {
             SphereMax.active = false;
             SphereGrown.active = false;
