@@ -45,7 +45,6 @@ public class TutorialManager : MonoBehaviour {
         if (connectionGoal[actualGoal])
         {
             button.enabled = false;
-
         }
         else
         {
