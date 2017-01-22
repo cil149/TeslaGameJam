@@ -579,9 +579,9 @@ MonoBehaviour:
   _aSource_loop1: {fileID: 521257096}
   listFinArrv: []
   _totalGold: 10
-  _threeStar: 50
-  _twoStar: 40
-  _OneStar: 30
+  _threeStar: 49
+  _twoStar: 39
+  _OneStar: 29
   marLayer:
     serializedVersion: 2
     m_Bits: 512

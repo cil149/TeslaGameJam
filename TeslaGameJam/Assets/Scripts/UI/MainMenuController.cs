@@ -30,7 +30,7 @@ public class MainMenuController : MonoBehaviour {
     }
 
     public void GotoPlay(){
-        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+        SceneManager.LoadScene("Tuto1", LoadSceneMode.Single);
     }
     
 public void GotoOptions(){

@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class HUDController : MonoBehaviour {
+    
     public static HUDController instance;
 
+    public bool startWithTuto = false;
+    public RectTransform tuto;
 
     public MouseOrbitImproved orbitMous;
     public string ActualMission;
     public string NextMission;
 
-    public RectTransform Win, Lose;
+    public RectTransform HUD, Win, Lose;
 
     public Sprite star_on, star_off;
 
@@ -25,6 +28,33 @@ public class HUDController : MonoBehaviour {
     public void Awake()
     {
         instance = this;
+
+    }
+    public void Start()
+    {
+        if(startWithTuto){
+            HUD.gameObject.SetActive(false);
+            tuto.gameObject.SetActive(true);
+
+            CameraInput.instance.stop = true;
+            if (orbitMous) orbitMous.stop = true;
+        }
+    }
+
+    public void Update()
+    {
+        if (startWithTuto)
+        {
+            if (InputController.instance.AButton > 0)
+            {
+
+                HUD.gameObject.SetActive(true);
+                tuto.gameObject.SetActive(false);
+
+                CameraInput.instance.stop = false;
+                orbitMous.stop = false;
+            }
+        }
     }
 
     public void ActivateStars(int n, int money)
