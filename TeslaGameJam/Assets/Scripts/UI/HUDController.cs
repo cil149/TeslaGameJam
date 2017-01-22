@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class HUDController : MonoBehaviour {
+    public static HUDController instance;
+
 
     public MouseOrbitImproved orbitMous;
     public string ActualMission;
@@ -16,6 +19,13 @@ public class HUDController : MonoBehaviour {
 
     public Image star1, star2, star3;
     public Text Money_text1, Money_text2;
+
+    public GameObject firstSelectedOnWin, firstSelectedOnLose;
+
+    public void Awake()
+    {
+        instance = this;
+    }
 
     public void ActivateStars(int n, int money)
     {
@@ -60,6 +70,7 @@ public class HUDController : MonoBehaviour {
 
     public void GotoNextMission()
     {
+        Debug.Log("sdagsafhgadfh");
         SceneManager.LoadScene(NextMission);
 
     }
@@ -73,16 +84,22 @@ public class HUDController : MonoBehaviour {
     public void ShowWin(int nStar, int money)
     {
         CameraInput.instance.stop = true;
-        orbitMous.stop = true;
+        if(orbitMous) orbitMous.stop = true;
         ActivateStars(nStar, money);
         Win.gameObject.SetActive(true);
+
+
+        EventSystem.current.SetSelectedGameObject(firstSelectedOnWin);
     }
 
 
     public void ShowLose(int money)
     {
         CameraInput.instance.stop = true;
-        orbitMous.stop = true;
+        if (orbitMous) orbitMous.stop = true;
         Lose.gameObject.SetActive(true);
+
+
+        EventSystem.current.SetSelectedGameObject(firstSelectedOnLose);
     }
 }

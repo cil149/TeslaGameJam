@@ -23,7 +23,7 @@ public class EnergyManager : MonoBehaviour {
 		private int estado;
 		[SerializeField]
 		private float _totalGold;
-		public HUDController  hud;
+		//public HUDController  hud;
 		public float totalGold { get { return _totalGold; } set { _totalGold = value; } }
 
 		[SerializeField]
@@ -64,7 +64,7 @@ public class EnergyManager : MonoBehaviour {
 		listCity = new List<City> ();
 		visitCity = new List<City> ();
         marLayer = ~marLayer;
-		hud = new HUDController ();
+		//hud = HUDController.instance;
     }
     void Start () {
 
@@ -81,16 +81,16 @@ public class EnergyManager : MonoBehaviour {
 
         if (totalGold < 50)
         {
-            StartCoroutine(changeLoopMusic());
+            ///StartCoroutine(changeLoopMusic());
         }
 
 		end = checkWinCondition ();
 		if (end){
 			if(estado==1){
 				checkStars ();
-				hud.ShowWin(stars,(int)totalGold);
+				HUDController.instance.ShowWin(stars,(int)totalGold);
 			}else{
-				hud.ShowLose((int)totalGold);
+                HUDController.instance.ShowLose((int)totalGold);
 			}
 		}
     }

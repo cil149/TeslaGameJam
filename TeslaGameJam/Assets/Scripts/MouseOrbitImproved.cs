@@ -60,7 +60,7 @@ public class MouseOrbitImproved : MonoBehaviour
         
         if (target)
         {
-            x += (OptionManager.instance._InverseXAxis ? 1 : -1) * InputController.instance.leftRaw * xSpeed * Mathf.Clamp((distance - distanceMin) / distanceMax, 0.05f, 0.15f);
+            x += (OptionManager.instance._InverseXAxis ? -1 : 1) * InputController.instance.leftRaw * xSpeed * Mathf.Clamp((distance - distanceMin) / distanceMax, 0.05f, 0.15f);
             y += (OptionManager.instance._InverseYAxis ? 1 : -1) * InputController.instance.forwardRaw * ySpeed * Mathf.Clamp((distance - distanceMin) / distanceMax, 0.05f, 0.15f);
             /*
             x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
