@@ -1158,8 +1158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bcc453790987774297c3d71965dedf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _addGold: -40
-  _subGold: 60
+  _addGold: -100
+  _subGold: 140
   _torus_rend: {fileID: 23189487595024072}
   _type: 0
   matOn1: {fileID: 2100000, guid: 988b0ca9baa2a524a955a7241276fe05, type: 2}

@@ -8618,7 +8618,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 873513993}
   m_GameObject: {fileID: 286669580}
-  m_LocalRotation: {x: 0.48243877, y: -0.25648174, z: 0.83264107, w: -0.0904359}
+  m_LocalRotation: {x: 0.48243883, y: -0.25648177, z: 0.8326412, w: -0.09043591}
   m_LocalPosition: {x: 0.009, y: 0.428, z: 0.281}
   m_LocalScale: {x: -0.03353933, y: 0.06273732, z: 0.072811544}
   m_Children: []
@@ -12380,7 +12380,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 1612110086}
   m_GameObject: {fileID: 432630394}
-  m_LocalRotation: {x: 0.48243877, y: -0.25648174, z: 0.83264107, w: -0.0904359}
+  m_LocalRotation: {x: 0.48243883, y: -0.25648177, z: 0.8326412, w: -0.09043591}
   m_LocalPosition: {x: 0.143, y: 0.412, z: 0.214}
   m_LocalScale: {x: -0.18815106, y: 0.062737405, z: 0.3138097}
   m_Children: []
@@ -16904,9 +16904,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listFinArrv: []
-  _totalGold: 330
-  _threeStar: 200
-  _twoStar: 150
+  _totalGold: 200
+  _threeStar: 100
+  _twoStar: 80
   _OneStar: 50
   marLayer:
     serializedVersion: 2
@@ -22704,6 +22704,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.76
@@ -22739,11 +22744,11 @@ Prefab:
     - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
         type: 2}
       propertyPath: wpMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1302771509363924, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_Name
-      value: Clouds (4)
+      value: CloudsDownLeft
       objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22756,6 +22761,36 @@ Prefab:
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -87.39001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].x
+      value: -17.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].y
+      value: -14.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].z
+      value: 5.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].x
+      value: -5.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].y
+      value: -15.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].z
+      value: -13.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
@@ -27992,6 +28027,87 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &904714831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 904714835}
+  - component: {fileID: 904714834}
+  - component: {fileID: 904714833}
+  - component: {fileID: 904714832}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &904714832
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904714831}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &904714833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904714831}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &904714834
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904714831}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &904714835
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904714831}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.99, y: 15.87, z: -1.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907146639
 GameObject:
   m_ObjectHideFlags: 0
@@ -28523,7 +28639,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 601360690}
   m_GameObject: {fileID: 942483848}
-  m_LocalRotation: {x: 0.48243883, y: -0.25648177, z: 0.8326412, w: -0.09043591}
+  m_LocalRotation: {x: 0.48243877, y: -0.25648174, z: 0.83264107, w: -0.0904359}
   m_LocalPosition: {x: -0.047, y: 0.456, z: 0.245}
   m_LocalScale: {x: -0.033539362, y: 0.062737405, z: 0.07281157}
   m_Children: []
@@ -30823,7 +30939,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1302771509363924, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_Name
-      value: Clouds (7)
+      value: CloudsRandom1
       objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -33774,15 +33890,15 @@ Transform:
   m_LocalPosition: {x: -0.56, y: 0, z: 2.37}
   m_LocalScale: {x: 45, y: 45, z: 45}
   m_Children:
-  - {fileID: 1605859014}
-  - {fileID: 1361086240}
+  - {fileID: 1442714444}
+  - {fileID: 1995019124}
   - {fileID: 1032585505}
   - {fileID: 2084323668}
   - {fileID: 729946114}
-  - {fileID: 1995019124}
+  - {fileID: 1361086240}
   - {fileID: 589621967}
   - {fileID: 1403561479}
-  - {fileID: 1442714444}
+  - {fileID: 1605859014}
   - {fileID: 837016322}
   - {fileID: 2042604736}
   - {fileID: 1560752082}
@@ -35657,6 +35773,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.76
@@ -35692,11 +35813,11 @@ Prefab:
     - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
         type: 2}
       propertyPath: wpMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1302771509363924, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_Name
-      value: Clouds (2)
+      value: CloudsDownRigth
       objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -35709,6 +35830,36 @@ Prefab:
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -87.39001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].x
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].y
+      value: -21.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].z
+      value: -2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].x
+      value: 5.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].y
+      value: -21.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].z
+      value: 3.19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
@@ -37153,6 +37304,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalPosition.x
       value: 20.76
@@ -37188,7 +37344,56 @@ Prefab:
     - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
         type: 2}
       propertyPath: wpMode
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302771509363924, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
+      propertyPath: m_Name
+      value: CloudsTop
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].x
+      value: 18.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].y
+      value: 10.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].z
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].x
+      value: 9.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].y
+      value: 18.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].z
+      value: 7.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[2].x
+      value: -12.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[2].y
+      value: 18.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[2].z
+      value: 2.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
@@ -37239,7 +37444,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1302771509363924, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_Name
-      value: Clouds (8)
+      value: CloudsRandom2
       objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -40570,6 +40775,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.76
@@ -40605,11 +40815,11 @@ Prefab:
     - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
         type: 2}
       propertyPath: wpMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1302771509363924, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_Name
-      value: Clouds (3)
+      value: CloudsMid
       objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -40622,6 +40832,66 @@ Prefab:
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -87.39001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].x
+      value: 18.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].y
+      value: -10.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].z
+      value: 3.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].x
+      value: 14.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].y
+      value: -10.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].z
+      value: -10.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[2].x
+      value: 4.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[2].y
+      value: -10.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[2].z
+      value: 16.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[3].x
+      value: -14.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[3].y
+      value: -5.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[3].z
+      value: -14.98
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
@@ -42848,7 +43118,7 @@ Transform:
   m_LocalScale: {x: -0.072536215, y: 0.06273733, z: 0.14083977}
   m_Children: []
   m_Father: {fileID: 1080606445}
-  m_RootOrder: 1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 51.214, y: 5.846, z: 0.25500003}
 --- !u!23 &1361086241
 MeshRenderer:
@@ -45028,7 +45298,7 @@ Transform:
   m_LocalScale: {x: -0.07253621, y: 0.06273734, z: 0.14083977}
   m_Children: []
   m_Father: {fileID: 1080606445}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 144.587, y: -13.429993, z: -10.290985}
 --- !u!23 &1442714445
 MeshRenderer:
@@ -45107,7 +45377,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 720594452}
   m_GameObject: {fileID: 1442961123}
-  m_LocalRotation: {x: 0.48243877, y: -0.25648174, z: 0.83264107, w: -0.0904359}
+  m_LocalRotation: {x: 0.48243883, y: -0.25648177, z: 0.8326412, w: -0.09043591}
   m_LocalPosition: {x: -0.0314, y: 0.4405, z: 0.199}
   m_LocalScale: {x: -0.065180674, y: 0.062737636, z: 0.13667493}
   m_Children: []
@@ -50424,7 +50694,7 @@ Transform:
   m_LocalScale: {x: -0.07253624, y: 0.062737286, z: 0.38462332}
   m_Children: []
   m_Father: {fileID: 1080606445}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 21.736002, z: 0}
 --- !u!65 &1605859015
 BoxCollider:
@@ -52089,6 +52359,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.76
@@ -52124,11 +52399,11 @@ Prefab:
     - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
         type: 2}
       propertyPath: wpMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1302771509363924, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_Name
-      value: Clouds (6)
+      value: CloudsNorth
       objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -52141,6 +52416,66 @@ Prefab:
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -87.39001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].x
+      value: 8.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].y
+      value: 17.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].z
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].z
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].x
+      value: -2.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[2].x
+      value: -2.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[3].x
+      value: 14.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[3].y
+      value: 15.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[3].z
+      value: -1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[2].z
+      value: 5.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[2].y
+      value: 21.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].y
+      value: 19.84
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
@@ -55694,7 +56029,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 1804678923}
   m_GameObject: {fileID: 1781761711}
-  m_LocalRotation: {x: 0.48243877, y: -0.25648174, z: 0.83264107, w: -0.0904359}
+  m_LocalRotation: {x: 0.48243883, y: -0.25648177, z: 0.8326412, w: -0.09043591}
   m_LocalPosition: {x: 0.1013, y: 0.3737, z: 0.2926}
   m_LocalScale: {x: -0.033539362, y: 0.062737405, z: 0.1945162}
   m_Children: []
@@ -55848,6 +56183,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalPosition.x
       value: 10.76
@@ -55883,11 +56223,11 @@ Prefab:
     - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
         type: 2}
       propertyPath: wpMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1302771509363924, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_Name
-      value: Clouds (5)
+      value: CloudsBlueExit
       objectReference: {fileID: 0}
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -55900,6 +56240,36 @@ Prefab:
     - target: {fileID: 4123118258069456, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -87.39001
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].x
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].y
+      value: -9.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[0].z
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].x
+      value: -17.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].y
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000455597167158, guid: 7b812e05f9acf894a9e09960aeaa1027,
+        type: 2}
+      propertyPath: wpList.Array.data[1].z
+      value: 17.18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b812e05f9acf894a9e09960aeaa1027, type: 2}
@@ -61359,7 +61729,7 @@ Transform:
   m_LocalScale: {x: -0.0725362, y: 0.06273733, z: 0.14083977}
   m_Children: []
   m_Father: {fileID: 1080606445}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -17.069, y: 27.215002, z: 1.8080001}
 --- !u!23 &1995019125
 MeshRenderer:
@@ -62622,7 +62992,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 1548145521}
   m_GameObject: {fileID: 2053407935}
-  m_LocalRotation: {x: 0.48243883, y: -0.25648177, z: 0.8326412, w: -0.09043591}
+  m_LocalRotation: {x: 0.48243877, y: -0.25648174, z: 0.83264107, w: -0.0904359}
   m_LocalPosition: {x: 0.065, y: 0.406, z: 0.307}
   m_LocalScale: {x: -0.033539355, y: 0.06273737, z: 0.072811574}
   m_Children: []
