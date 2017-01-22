@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour {
@@ -17,7 +18,7 @@ public class MainMenuController : MonoBehaviour {
 	}
 	
     public void GotoPlay(){
-
+        SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }
     
 public void GotoOptions(){
