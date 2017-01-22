@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnergyManager : MonoBehaviour {
 
 
@@ -20,7 +21,7 @@ public class EnergyManager : MonoBehaviour {
 		private int estado;
 		[SerializeField]
 		private float _totalGold;
-
+		public HUDController  hud;
 		public float totalGold { get { return _totalGold; } set { _totalGold = value; } }
 
 		[SerializeField]
@@ -61,6 +62,7 @@ public class EnergyManager : MonoBehaviour {
 		listCity = new List<City> ();
 		visitCity = new List<City> ();
         marLayer = ~marLayer;
+		hud = new HUDController ();
     }
     void Start () {
 
@@ -78,9 +80,9 @@ public class EnergyManager : MonoBehaviour {
 		if (end){
 			if(estado==1){
 				checkStars ();
-				////victoria
+				hud.ShowWin(stars,(int)totalGold);
 			}else{
-				//////Derrota
+				hud.ShowLose((int)totalGold);
 			}
 		}
     }
