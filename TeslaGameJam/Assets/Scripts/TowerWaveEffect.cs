@@ -12,6 +12,9 @@ public class TowerWaveEffect : MonoBehaviour {
     public float maxScale = 10;
     public float minScale=1;
     private float actScale;
+
+    public Material mat; 
+
 	// Use this for initialization
 	void Start () {
         actScale = minScale;
@@ -19,11 +22,18 @@ public class TowerWaveEffect : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void LateUpdate() {
         if (towerState.isOn) {
-            SphereMax.active = true;
-            SphereGrown.active = true;
+            SphereMax.SetActive(true);
+            SphereGrown.SetActive(true);
             actScale += Time.deltaTime*4;
+
+            mat.color = Color.Lerp(
+                new Color(mat.color.r, mat.color.g, mat.color.b, 0.5f),
+                new Color(mat.color.r, mat.color.g, mat.color.b, 0f),
+                (actScale-minScale)/maxScale);
+
+
             if (actScale > maxScale)
             {
                 actScale = minScale;
@@ -34,8 +44,8 @@ public class TowerWaveEffect : MonoBehaviour {
 
         }else
         {
-            SphereMax.active = false;
-            SphereGrown.active = false;
+            SphereMax.SetActive(false);
+            SphereGrown.SetActive(false);
         }
     }
 }
