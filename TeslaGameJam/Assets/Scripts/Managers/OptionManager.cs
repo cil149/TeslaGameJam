@@ -23,41 +23,25 @@ public class OptionManager : MonoBehaviour {
 
     }
 
-    public void EnableMusic()
+    public void EnableMusic(bool b)
     {
-        _EnableMusic = true;
+        _EnableMusic = b;
     }
 
-    public void DisableMusic()
+
+    public void EnableSound(bool b)
     {
-        _EnableMusic = false;
+        _EnableSound = b;
     }
 
-    public void EnableSound()
+    public void EnableInverseXAxis(bool b)
     {
-        _EnableSound = true;
-    }
-    public void DisableSound()
-    {
-        _EnableSound = false;
+        _InverseXAxis = b;
     }
 
-    public void EnableInverseXAxis()
-    {
-        _InverseXAxis = true;
-    }
 
-    public void DisableInverseXAxis()
+    public void EnableInverseYAxis(bool b)
     {
-        _InverseXAxis = false;
-    }
-
-    public void EnableInverseYAxis()
-    {
-        _InverseYAxis = true;
-    }
-    public void DisableInverseYAxis()
-    {
-        _InverseYAxis = false;
+        _InverseYAxis = b;
     }
 }

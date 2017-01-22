@@ -4,6 +4,11 @@ using System.Collections;
 [AddComponentMenu("Camera-Control/Mouse Orbit with zoom")]
 public class MouseOrbitImproved : MonoBehaviour
 {
+    public bool stop; 
+
+
+    public AudioSource _aSource;
+
 
     public Transform target;
     public  float distance;
@@ -44,8 +49,14 @@ public class MouseOrbitImproved : MonoBehaviour
         }
     }
 
+    float lastDistance = 0;
+    Vector2 lastPos = Vector2.zero;
     void LateUpdate()
     {
+        if (!stop)
+            return;
+
+
         if (target)
         {
             x += InputController.instance.leftRaw * xSpeed * Mathf.Clamp((distance - distanceMin) / distanceMax, 0.05f, 0.15f) ;
@@ -71,6 +82,15 @@ public class MouseOrbitImproved : MonoBehaviour
 
             transform.rotation = rotation;
             transform.position = position;
+
+            if (lastPos.x != x || lastPos.y != y || lastDistance != distance)
+            {
+                _aSource.PlayOneShot(_aSource.clip);
+            }
+
+            lastDistance = distance;
+            lastPos.Set(x, y);
+
         }
     }
 
