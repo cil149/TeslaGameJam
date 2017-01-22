@@ -4,7 +4,7 @@ using System.Collections;
 [AddComponentMenu("Camera-Control/Mouse Orbit with zoom")]
 public class MouseOrbitImproved : MonoBehaviour
 {
-    public bool stop; 
+    public bool stop = true; 
 
 
     public AudioSource _aSource;
@@ -53,14 +53,15 @@ public class MouseOrbitImproved : MonoBehaviour
     Vector2 lastPos = Vector2.zero;
     void LateUpdate()
     {
-        if (!stop)
+        
+        if (stop)
             return;
 
-
+        
         if (target)
         {
-            x += InputController.instance.leftRaw * xSpeed * Mathf.Clamp((distance - distanceMin) / distanceMax, 0.05f, 0.15f) ;
-            y += InputController.instance.forwardRaw * ySpeed * Mathf.Clamp((distance - distanceMin) / distanceMax, 0.05f, 0.15f);
+            x += OptionManager.instance._InverseXAxis?1:-1* InputController.instance.leftRaw * xSpeed * Mathf.Clamp((distance - distanceMin) / distanceMax, 0.05f, 0.15f) ;
+            y += OptionManager.instance._InverseYAxis ? 1 : -1 * InputController.instance.forwardRaw * ySpeed * Mathf.Clamp((distance - distanceMin) / distanceMax, 0.05f, 0.15f);
             /*
             x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
             y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
@@ -85,6 +86,7 @@ public class MouseOrbitImproved : MonoBehaviour
 
             if (lastPos.x != x || lastPos.y != y || lastDistance != distance)
             {
+                if(_aSource.isPlaying)
                 _aSource.PlayOneShot(_aSource.clip);
             }
 

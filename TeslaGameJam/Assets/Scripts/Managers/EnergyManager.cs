@@ -8,6 +8,8 @@ public class EnergyManager : MonoBehaviour {
 
     public static EnergyManager instance;
 
+    public AudioSource _aSource_loop2, _aSource_loop1;
+
 		private List<Tower> listTower;
 		private List<Tower> listIniT;
 		private List<Tower> listFinT;
@@ -76,6 +78,12 @@ public class EnergyManager : MonoBehaviour {
         IniUpdate();
         EnergyUpdate();
 		checkCity ();
+
+        if (totalGold < 50)
+        {
+            StartCoroutine(changeLoopMusic());
+        }
+
 		end = checkWinCondition ();
 		if (end){
 			if(estado==1){
@@ -85,6 +93,17 @@ public class EnergyManager : MonoBehaviour {
 				hud.ShowLose((int)totalGold);
 			}
 		}
+    }
+
+    IEnumerator changeLoopMusic()
+    {
+        _aSource_loop2.Play();
+        while (_aSource_loop1.volume > 0.01f)
+        {
+            _aSource_loop1.volume -= 0.05f;
+            _aSource_loop2.volume = 1 - _aSource_loop1.volume;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
 	void IniUpdate(){

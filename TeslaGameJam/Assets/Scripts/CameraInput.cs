@@ -40,7 +40,7 @@ public class CameraInput : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-        if (!stop) return;
+        if (stop) return;
 
         if (_towerPrefab_Instance == null)
         {

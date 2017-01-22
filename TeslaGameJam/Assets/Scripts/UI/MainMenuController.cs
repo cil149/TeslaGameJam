@@ -11,12 +11,21 @@ public class MainMenuController : MonoBehaviour {
 
     public GameObject firstSelectedOnMainMenus, firstSelectedOnOptions, firstSelectedOnCredits, firstSelectedOnExit;
 
-
+    public Toggle InvertX, InvertY, enableAudio, enableMusic;
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
+
+
+    public void Update()
+    {
+        OptionManager.instance.EnableInverseXAxis(InvertX.isOn);
+        OptionManager.instance.EnableInverseYAxis(InvertY.isOn);
+        OptionManager.instance.EnableMusic(enableMusic.isOn);
+        OptionManager.instance.EnableSound(enableAudio.isOn);
+    }
+
     public void GotoPlay(){
         SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }

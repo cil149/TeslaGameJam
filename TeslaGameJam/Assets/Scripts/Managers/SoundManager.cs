@@ -7,7 +7,7 @@ public class SoundManager : MonoBehaviour {
 
     public static SoundManager instance;
 
-    AudioMixer mixer; 
+    public AudioMixer mixer; 
 
 
 	// Use this for initialization
