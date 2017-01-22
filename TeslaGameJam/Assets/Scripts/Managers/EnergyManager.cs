@@ -10,6 +10,8 @@ public class EnergyManager : MonoBehaviour {
 		private List<Tower> listTower;
 		private List<Tower> listIniT;
 		private List<Tower> listFinT;
+		[SerializeField]
+		private List<Tower> listFinArrv;
 		private List<Tower> listRecorridas;
 		private List<Tower> listPendientes;
 		private List<City> listCity;
@@ -52,7 +54,7 @@ public class EnergyManager : MonoBehaviour {
         listTower = new List<Tower>();
         listIniT = new List<Tower>();
         listFinT = new List<Tower>();
-
+		listFinArrv = new List<Tower> ();
         listRecorridas = new List<Tower>();
         listPendientes = new List<Tower>();
 
@@ -106,8 +108,18 @@ public class EnergyManager : MonoBehaviour {
                     {
                         if (hit.collider.gameObject == t.gameObject)
                         {
-                            listPendientes.Add(t);
-							t.isOn = true;
+							if (t.isFinal) {
+								if (t.type == actTower.type  && !listFinArrv.Contains(t)) {
+									listFinArrv.Add (t);
+								}
+							} else {
+								if (t.type == 0) {
+									t.type = actTower.type;
+									listPendientes.Add (t);
+								} else if (t.type == actTower.type)
+									listPendientes.Add (t);
+								t.isOn = true;
+							}
 						}
                     }
                 }
@@ -116,6 +128,9 @@ public class EnergyManager : MonoBehaviour {
 				if (Physics.Raycast (actTower.transform.position, c.transform.position - actTower.transform.position, out hit, actTower.distMax)) {
 					if (c.gameObject == hit.collider.gameObject) {
 						visitCity.Add (c);
+						if (c.type == 0) {
+							c.type = actTower.type;
+						}
 					}
 				}
 			}
@@ -135,6 +150,7 @@ public class EnergyManager : MonoBehaviour {
 			}else if(c.isActive){
 				ActGold (c.subGold);
 				c.isActive = false;
+				c.type = 0;
 			}
 		}
 		visitCity.Clear ();
@@ -143,12 +159,7 @@ public class EnergyManager : MonoBehaviour {
 
     bool checkWinCondition()
     {
-		int finishTowerOn=0;
-		foreach (Tower t in listFinT) {
-			if (t.isOn)
-				finishTowerOn++;
-		}
-		if (finishTowerOn == listFinT.Count) {
+		if (listFinArrv.Count == listFinT.Count) {
 			return true;
 		}
 		return false;

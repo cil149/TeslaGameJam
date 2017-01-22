@@ -9,7 +9,7 @@ public class Tower : MonoBehaviour {
     private bool _isInitial;
     [SerializeField]
     private bool _isFinal;
-
+	[SerializeField]
     private bool _isOn;
 
     [SerializeField]
@@ -18,16 +18,22 @@ public class Tower : MonoBehaviour {
     [SerializeField]
     private Renderer _torus_rend;
 
+	[SerializeField]
+	private int _type;
+
+
     public bool isInitial { get { return _isInitial; } set { _isInitial = value; } }
     public bool isFinal { get { return _isFinal; } set { _isFinal = value; } }
     public float distMax { get { return _distMax; } set { _distMax = value; } }
     public bool isOn { get { return _isOn; } set { _isOn = value; } }
 	public float cost { get { return _cost; } set { _cost = value; } }
+	public int type { get { return _type; } set { _type = value; } }
+
 	public Collider sphere;
 
-    public Material matOn;
+    public Material matOnt1;
+	public Material matOnt2;
     public Material matOff;
-
 
     private bool _isInEditMode;
     public bool isInEditMode
@@ -36,7 +42,7 @@ public class Tower : MonoBehaviour {
         set
         {
             _isInEditMode = value;
-
+			type = 0;
 			if (!_isInEditMode) {
 				this.sphere.enabled = true;
 				EnergyManager.instance.RegisterTower (this);
@@ -102,17 +108,21 @@ public class Tower : MonoBehaviour {
         {
             return;
         }
-
-        if (isOn && _torus_rend.material != matOn)
-        {
-
-            _torus_rend.material = matOn;
-        }
-        else if (!isOn && _torus_rend.material != matOff)
-        {
-            _torus_rend.material = matOff;
-        }
-
+		switch(type){
+		case 1:
+			if ((isOn && _torus_rend.material != matOnt1) || (_isFinal))
+				_torus_rend.material = matOnt1;
+			break;
+		case 2:
+			if ((isOn && _torus_rend.material != matOnt2)|| (_isFinal))
+				_torus_rend.material = matOnt2;
+			break;
+		default :
+			_torus_rend.material = matOff;
+			break;
+		}
+		//if (!isOn && _torus_rend.material != matOff)
+		//	_torus_rend.material = matOff;
     }
 
 

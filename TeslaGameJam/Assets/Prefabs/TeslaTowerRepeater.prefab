@@ -361,10 +361,13 @@ MonoBehaviour:
   _distMax: 5
   _isInitial: 0
   _isFinal: 0
+  _isOn: 0
   _cost: 0
   _torus_rend: {fileID: 23499885575690070}
+  _type: 0
   sphere: {fileID: 135905232807272322}
-  matOn: {fileID: 2100000, guid: 988b0ca9baa2a524a955a7241276fe05, type: 2}
+  matOnt1: {fileID: 2100000, guid: 988b0ca9baa2a524a955a7241276fe05, type: 2}
+  matOnt2: {fileID: 2100000, guid: 8d56ff8847212e24e8680506fd18cf32, type: 2}
   matOff: {fileID: 2100000, guid: 33a04427f480fab49b01d81cfac70c2a, type: 2}
 --- !u!114 &114685788597897046
 MonoBehaviour:
