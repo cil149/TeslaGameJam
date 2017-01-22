@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class CameraInput : MonoBehaviour {
 
+    public AudioSource _aSource;
+
+
     public static CameraInput instance;
 
+    public bool stop = false;
 
     public GameObject _Camera;
     public GameObject _MyPlanet;
@@ -36,6 +40,7 @@ public class CameraInput : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
+        if (!stop) return;
 
         if (_towerPrefab_Instance == null)
         {
@@ -77,6 +82,9 @@ public class CameraInput : MonoBehaviour {
         {
             if (towerPrefab_Tower && towerPrefab_Tower.CanPlaceHere)
             {
+                _aSource.PlayOneShot(_aSource.clip);
+
+
                 towerPrefab_Tower.isInEditMode = false;
                 _towerPrefab_Instance = Instantiate(_towerPrefab) as GameObject;
                 towerPrefab_Tower.isInEditMode = true;

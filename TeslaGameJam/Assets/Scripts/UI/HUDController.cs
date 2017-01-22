@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class HUDController : MonoBehaviour {
 
+    public MouseOrbitImproved orbitMous;
     public string ActualMission;
     public string NextMission;
 
@@ -71,6 +72,8 @@ public class HUDController : MonoBehaviour {
 
     public void ShowWin(int nStar, int money)
     {
+        CameraInput.instance.stop = true;
+        orbitMous.stop = true;
         ActivateStars(nStar, money);
         Win.gameObject.SetActive(true);
     }
@@ -78,6 +81,8 @@ public class HUDController : MonoBehaviour {
 
     public void ShowLose(int money)
     {
+        CameraInput.instance.stop = true;
+        orbitMous.stop = true;
         Lose.gameObject.SetActive(true);
     }
 }
