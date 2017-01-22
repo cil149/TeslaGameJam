@@ -108,61 +108,19 @@ public class EnergyManager : MonoBehaviour {
                         {
                             listPendientes.Add(t);
 							t.isOn = true;
-                        }
-                        else if (hit.collider.gameObject.GetComponent<CloudScript>()) //nubes // si ha chocado con nubes
-                        {
-                            RaycastHit hit2;
-                            //y desde la antena objetivo tambien choca con nube (Bug si se ponen dos nubes en la trayectoria de un mismo rayo? )
-                            if (Physics.Raycast(t.transform.position, (t.transform.position - actTower.transform.position) * -1, out hit2, actTower.distMax))
-                            {
-                                CloudScript cloud = hit.collider.gameObject.GetComponent<CloudScript>();
-                                float coefDownSignal;
-                                if (cloud)// (choca con nube tambien)
-                                {
-                                    coefDownSignal = cloud.signalDownCoef;
-                                    float distCloud = actTower.distMax - Vector3.Distance(hit.point, hit2.point) * coefDownSignal;
-                                    //Si con las restricciones de la distancia, sigue llegando a la antena, entonces puede atravesar la nube
-                                    if (Physics.Raycast(actTower.transform.position, t.transform.position - actTower.transform.position, out hit, distCloud, 8))
-                                    {
-                                        listPendientes.Add(t);
-                                        t.isOn = true;
-                                    }
-                                }
-                            }
-                        }
+						}
                     }
                 }
             }
-        
-		    foreach (City c in listCity) {
-			    if (Physics.Raycast (actTower.transform.position, c.transform.position - actTower.transform.position, out hit, actTower.distMax)) {
-				    if (c.gameObject == hit.collider.gameObject) {
-					    visitCity.Add (c);
-				    }
-                    
-                    else if (hit.collider.gameObject.GetComponent<CloudScript>() ) //nubes // si ha chocado con nubes
-                    {
-                        RaycastHit hit2;
-                        //y desde la antena objetivo tambien choca con nube (Bug si se ponen dos nubes en la trayectoria de un mismo rayo? )
-                        if (Physics.Raycast(c.transform.position, (c.transform.position - actTower.transform.position) * -1, out hit2, actTower.distMax))
-                        {
-                            CloudScript cloud = hit.collider.gameObject.GetComponent<CloudScript>();
-                            float coefDownSignal;
-                            if (cloud) { // (choca con nube tambien)
-                                coefDownSignal = cloud.signalDownCoef;
-                                float distCloud = actTower.distMax - Vector3.Distance(hit.point, hit2.point)* coefDownSignal;
-                                //Si con las restricciones de la distancia, sigue llegando a la antena, entonces puede atravesar la nube
-                                if (Physics.Raycast(actTower.transform.position, c.transform.position - actTower.transform.position, out hit, distCloud, 8))
-                                {
-                                    visitCity.Add(c);
-                                }
-                            }
-                        }
-                    }
-                }
-		    }
-		listRecorridas.Add (actTower);
-		listPendientes.Remove (actTower);
+			foreach (City c in listCity) {
+				if (Physics.Raycast (actTower.transform.position, c.transform.position - actTower.transform.position, out hit, actTower.distMax)) {
+					if (c.gameObject == hit.collider.gameObject) {
+						visitCity.Add (c);
+					}
+				}
+			}
+			listRecorridas.Add (actTower);
+			listPendientes.Remove (actTower);
         }
     }
 
