@@ -16,8 +16,8 @@ public class EnergyManager : MonoBehaviour {
 		private List<Tower> listPendientes;
 		private List<City> listCity;
 		private List<City> visitCity;
-		private bool victory;
-		
+		private bool end;
+		private int estado;
 		[SerializeField]
 		private float _totalGold;
 
@@ -64,8 +64,9 @@ public class EnergyManager : MonoBehaviour {
     }
     void Start () {
 
-		victory = false;
+		end = false;
 		stars = 0;
+		estado = 0;
 	}
 	
 	// Update is called once per frame
@@ -73,9 +74,15 @@ public class EnergyManager : MonoBehaviour {
         IniUpdate();
         EnergyUpdate();
 		checkCity ();
-		victory = checkWinCondition ();
-		if (victory)
-			checkStars ();
+		end = checkWinCondition ();
+		if (end){
+			if(estado==1){
+				checkStars ();
+				////victoria
+			}else{
+				//////Derrota
+			}
+		}
     }
 
 	void IniUpdate(){
@@ -237,8 +244,10 @@ public class EnergyManager : MonoBehaviour {
     bool checkWinCondition()
     {
 		if (listFinArrv.Count == listFinT.Count) {
+			estado = 1;
 			return true;
-		}
+		} else if (totalGold <= 0)
+			return true;
 		return false;
     }
 
