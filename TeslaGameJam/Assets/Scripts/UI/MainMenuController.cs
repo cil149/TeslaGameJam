@@ -14,7 +14,10 @@ public class MainMenuController : MonoBehaviour {
     public Toggle InvertX, InvertY, enableAudio, enableMusic;
 	// Use this for initialization
 	void Start () {
-		
+		InvertX.isOn = OptionManager.instance._InverseXAxis;
+        InvertY.isOn = OptionManager.instance._InverseYAxis;
+        enableAudio.isOn = OptionManager.instance._EnableSound;
+        enableMusic.isOn = OptionManager.instance._EnableMusic;
 	}
 
 
@@ -27,7 +30,7 @@ public class MainMenuController : MonoBehaviour {
     }
 
     public void GotoPlay(){
-        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        SceneManager.LoadScene("Tuto1", LoadSceneMode.Single);
     }
     
 public void GotoOptions(){
